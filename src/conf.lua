@@ -1,6 +1,5 @@
 os.execute ("br orb")
 function love.conf(pre)
-  os.execute ("cd src")
   pre.window.width=500
   pre.window.height=100
   pre.window.borderless =  true

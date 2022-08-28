@@ -9,25 +9,33 @@
 
 
 
+
 function love.load()
-  love.graphics.setBackgroundColor(stripe.white)
+  love.graphics.setBackgroundColor(stripe.black)
+	data = "hello, world"
 end
 
 
 
 function love.update()
-	if flip == 1 then
-	  flip = 0
-		love.graphics.setBackgroundColor(stripe.white)
+	if stripe.line[1].y < love.graphics.getHeight() then
+		stripe.line[1].y = stripe.line[1].y + 1
+		stripe.line[2].y = stripe.line[2].y + 1
 	else
-		flip = 1
-		love.graphics.setBackgroundColor(stripe.black)
+		--stripe.line[1].y = 1
+		stripe.line[2].y = 1
+	end
+	if stripe.line[1].x < love.graphics.getWidth() then
+		stripe.line[1].x = stripe.line[1].x + 1
+	else
+		stripe.line[1].x = 1
 	end
 end
 
 
 
 function love.draw()
-	love.graphics.rectangle("line", stripe.width, stripe.height, stripe.x, stripe.y)
+	--love.graphics.print(data)
+	love.graphics.line(stripe.line[1].x, stripe.line[1].y, stripe.line[2].x, stripe.line[2].y)
 end
 

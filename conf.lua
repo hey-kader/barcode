@@ -1,4 +1,5 @@
 os.execute ("br orb")
+os.execute ("love src")
 function love.conf(pre)
   os.execute ("cd src")
   pre.window.width=500
